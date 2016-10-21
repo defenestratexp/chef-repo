@@ -3,4 +3,4 @@ hostname: 127.0.0.1
 port: '2222'
 username: vagrant
 ssh_key: "/home/tthompson/build/repos/mine/chef-repo/cookbooks/tt_git/.kitchen/kitchen-vagrant/kitchen-tt_git-default-ubuntu-1404/.vagrant/machines/default/virtualbox/private_key"
-last_action: create
+last_action: converge
