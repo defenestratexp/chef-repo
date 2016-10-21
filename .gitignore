@@ -1,0 +1,4 @@
+# System items
+
+# This one ignores vim swap files
+.sw*
