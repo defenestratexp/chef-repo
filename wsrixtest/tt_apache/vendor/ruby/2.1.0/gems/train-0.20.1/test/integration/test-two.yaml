@@ -1,0 +1,4 @@
+images:
+- ubuntu:16.04
+provision:
+- script: bootstrap.sh

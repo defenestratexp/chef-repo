@@ -1,0 +1,19 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+
+verifier:
+ name: inspec
+
+suites:
+  - name: default
+    run_list:
+      - recipe[tt_apache::default]
+      - recipe[tt_apache::tree]
+    attributes:

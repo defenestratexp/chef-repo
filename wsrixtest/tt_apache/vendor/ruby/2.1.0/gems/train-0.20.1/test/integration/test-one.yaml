@@ -1,0 +1,4 @@
+images:
+- alpine:edge
+provision:
+- script: bootstrap.sh

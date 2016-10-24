@@ -8,9 +8,14 @@ provisioner:
 platforms:
   - name: ubuntu-14.04
   - name: centos-6.8
+  - name: fedora-24
 
 suites:
   - name: default
     run_list:
       - recipe[git::default]
+    attributes:
+  - name: server
+    run_list:
+      - recipe[git::server]
     attributes:

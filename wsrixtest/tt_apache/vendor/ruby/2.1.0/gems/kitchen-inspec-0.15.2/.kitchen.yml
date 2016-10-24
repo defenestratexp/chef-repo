@@ -1,0 +1,49 @@
+---
+driver:
+  name: dokken
+
+transport:
+  name: dokken
+
+provisioner:
+  name: dokken
+
+verifier:
+  name: inspec
+  sudo: true
+
+platforms:
+- name: ubuntu
+  driver:
+    image: ubuntu:14.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[os_prepare]
+  - name: profile
+    run_list:
+      - recipe[os_prepare]
+  - name: contains_inspec
+    run_list:
+      - recipe[os_prepare]
+    verifier:
+      inspec_tests:
+        - https://github.com/nathenharvey/tmp_compliance_profile
+  - name: supermarket
+    run_list:
+      - recipe[apt]
+      - recipe[ssh-hardening]
+    verifier:
+      inspec_tests:
+        - supermarket://hardening/ssh-hardening
+  # before you are able to use the compliance plugin, you need to run
+  # insecure is only required if you use self-signed certificates
+  # $ inspec compliance login https://compliance.test --user admin --insecure --token ''
+  - name: compliance
+    run_list:
+      - recipe[apt]
+      - recipe[ssh-hardening]
+    verifier:
+      inspec_tests:
+        - compliance://base/ssh

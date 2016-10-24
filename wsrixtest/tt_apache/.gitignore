@@ -1,0 +1,6 @@
+# Ignore the .kitchen directory entirely
+.kitchen
+
+# Ignore my vim swap files that occure because
+# I never close everything inside nerdtree
+.sw*
